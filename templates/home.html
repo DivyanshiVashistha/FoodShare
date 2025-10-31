@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}FoodShare - Share Food, Share Love{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="hero-title">Share Food, <span class="text-gradient">Share Love</span></h1>
+                <p class="hero-subtitle">Connect with those in need and make a difference. Your excess food can be someone's meal.</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('donate') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-hand-holding-heart"></i> Donate Now
+                    </a>
+                    <a href="{{ url_for('about') }}" class="btn btn-outline-primary btn-lg">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <i class="fas fa-bowl-food"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <h3 class="stat-number">10,000+</h3>
+                    <p class="stat-label">People Helped</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card">
+                    <i class="fas fa-utensils stat-icon"></i>
+                    <h3 class="stat-number">50,000+</h3>
+                    <p class="stat-label">Meals Served</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card">
+                    <i class="fas fa-hand-holding-heart stat-icon"></i>
+                    <h3 class="stat-number">5,000+</h3>
+                    <p class="stat-label">Donors</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card">
+                    <i class="fas fa-city stat-icon"></i>
+                    <h3 class="stat-number">25+</h3>
+                    <p class="stat-label">Cities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple steps to make a difference</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h4>1. Register Your Donation</h4>
+                    <p>Fill out our simple form with details about the food you want to donate. Include your contact information and pickup location.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>2. We Contact You</h4>
+                    <p>Our team will reach out to you within 24 hours to arrange a convenient pickup time that works for you.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4>3. We Deliver</h4>
+                    <p>We pick up the food and deliver it to those in need, ensuring it reaches the right people at the right time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Donate Section -->
+<section class="why-donate-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="why-donate-image">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="mb-4">Why Donate Food?</h2>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h5>Reduce Food Waste</h5>
+                        <p>Millions of tons of food are wasted every year. Your donation helps reduce this waste.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h5>Help Those in Need</h5>
+                        <p>Many families struggle with food insecurity. Your contribution makes a real difference.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h5>Build Community</h5>
+                        <p>Join a community of generous donors working together to end hunger.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h5>Easy & Convenient</h5>
+                        <p>We make the donation process simple with free pickup from your location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <div class="container text-center">
+        <h2 class="text-white mb-4">Ready to Make a Difference?</h2>
+        <p class="text-white mb-4">Your small act of kindness can bring a smile to someone's face. Start donating today!</p>
+        <a href="{{ url_for('donate') }}" class="btn btn-light btn-lg">
+            <i class="fas fa-heart"></i> Donate Food Now
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You - FoodShare{% endblock %}
+
+{% block content %}
+<section class="thank-you-section">
+    <div class="container text-center">
+        <div class="thank-you-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        
+        {% if type == 'donation' %}
+            <h1 class="thank-you-title">Thank You for Your Generous Donation!</h1>
+            <p class="thank-you-text">Your kindness will make a real difference in someone's life. We have received your donation details and our team will contact you within 24 hours to arrange pickup.</p>
+            
+            <div class="next-steps">
+                <h3>What Happens Next?</h3>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h5>Confirmation Call</h5>
+                            <p>We'll call you to confirm details and schedule pickup</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h5>Food Pickup</h5>
+                            <p>Our team will collect the food at the scheduled time</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h5>Distribution</h5>
+                            <p>Food is delivered to families in need</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif type == 'feedback' %}
+            <h1 class="thank-you-title">Thank You for Your Feedback!</h1>
+            <p class="thank-you-text">We appreciate you taking the time to share your thoughts with us. Your feedback helps us improve our services and better serve the community.</p>
+            
+            <div class="feedback-info">
+                <p><i class="fas fa-info-circle"></i> We review all feedback carefully and will respond to you via email if needed.</p>
+            </div>
+        {% endif %}
+
+        <div class="thank-you-stats">
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="stat-box">
+                        <i class="fas fa-heart"></i>
+                        <h4>You're Amazing!</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="stat-box">
+                        <i class="fas fa-users"></i>
+                        <h4>Helping Others</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="stat-box">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Reducing Waste</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="stat-box">
+                        <i class="fas fa-globe"></i>
+                        <h4>Better World</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+            {% if type == 'donation' %}
+                <a href="{{ url_for('donate') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-plus"></i> Donate Again
+                </a>
+            {% else %}
+                <a href="{{ url_for('about') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            {% endif %}
+        </div>
+
+        <!-- Share Section -->
+        <div class="share-section">
+            <h4>Spread the Word!</h4>
+            <p>Help us reach more people by sharing FoodShare</p>
+            <div class="share-buttons">
+                <a href="#" class="share-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="share-btn twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="share-btn linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="share-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

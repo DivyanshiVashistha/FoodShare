@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback - FoodShare{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1><i class="fas fa-comments"></i> Your Feedback Matters</h1>
+        <p>Help us improve our services and make a bigger impact</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>Share Your Thoughts</h3>
+                        <p>We value your feedback! Let us know how we're doing or share your suggestions.</p>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('feedback') }}" id="feedbackForm">
+                        <div class="mb-4">
+                            <label for="name" class="form-label">
+                                <i class="fas fa-user"></i> Your Name *
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name" required 
+                                   placeholder="Enter your name">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i> Email Address *
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email" required 
+                                   placeholder="your.email@example.com">
+                            <small class="form-text text-muted">We'll use this to respond to your feedback</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label">
+                                <i class="fas fa-comment-dots"></i> Your Message *
+                            </label>
+                            <textarea class="form-control" id="message" name="message" rows="6" required 
+                                      placeholder="Share your experience, suggestions, or any concerns you may have..."></textarea>
+                            <small class="form-text text-muted">Minimum 10 characters</small>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Feedback
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Feedback Categories -->
+                <div class="row mt-5">
+                    <div class="col-md-6 mb-4">
+                        <div class="feedback-type-card">
+                            <i class="fas fa-star"></i>
+                            <h5>Share Your Experience</h5>
+                            <p>Tell us about your donation experience</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feedback-type-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h5>Suggest Improvements</h5>
+                            <p>Help us enhance our services</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feedback-type-card">
+                            <i class="fas fa-question-circle"></i>
+                            <h5>Ask Questions</h5>
+                            <p>We're here to help answer your queries</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feedback-type-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h5>Report Issues</h5>
+                            <p>Let us know if something isn't working</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">What People Say</h2>
+            <p class="section-subtitle">Hear from our community</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"FoodShare made it so easy to donate leftover food from our restaurant. The pickup was prompt and professional!"</p>
+                    <div class="testimonial-author">
+                        <strong>John Martinez</strong>
+                        <span>Restaurant Owner</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I love being able to contribute to my community. FoodShare connects me with people who truly need help."</p>
+                    <div class="testimonial-author">
+                        <strong>Lisa Thompson</strong>
+                        <span>Regular Donor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The team is incredibly responsive and caring. They make every donation count. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <strong>David Park</strong>
+                        <span>Corporate Partner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Form validation
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        const message = document.getElementById('message').value;
+        
+        if (message.length < 10) {
+            e.preventDefault();
+            alert('Please provide a message with at least 10 characters');
+            return false;
+        }
+    });
+</script>
+{% endblock %}

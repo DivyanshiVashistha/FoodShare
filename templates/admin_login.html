@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login - FoodShare{% endblock %}
+
+{% block content %}
+<section class="admin-login-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="admin-login-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-shield admin-icon"></i>
+                        <h3>Admin Dashboard</h3>
+                        <p>Enter password to access</p>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('admin') }}">
+                        <div class="mb-4">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <input type="password" class="form-control form-control-lg" 
+                                   id="password" name="password" required 
+                                   placeholder="Enter admin password" autofocus>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('home') }}" class="text-muted">
+                            <i class="fas fa-arrow-left"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

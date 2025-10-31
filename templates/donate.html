@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Donate Food - FoodShare{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1><i class="fas fa-hand-holding-heart"></i> Donate Food</h1>
+        <p>Fill out the form below to donate your excess food</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>Donation Details</h3>
+                        <p>Thank you for your generosity! Please provide the following information.</p>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('donate') }}" id="donateForm">
+                        <div class="mb-4">
+                            <label for="name" class="form-label">
+                                <i class="fas fa-user"></i> Full Name *
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name" required 
+                                   placeholder="Enter your full name">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="phone" class="form-label">
+                                <i class="fas fa-phone"></i> Phone Number *
+                            </label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required 
+                                   placeholder="+1 (555) 123-4567" pattern="[0-9+\-\s\(\)]+">
+                            <small class="form-text text-muted">We'll use this to coordinate pickup</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="address" class="form-label">
+                                <i class="fas fa-map-marker-alt"></i> Pickup Address *
+                            </label>
+                            <textarea class="form-control" id="address" name="address" rows="3" required 
+                                      placeholder="Enter your complete address including street, city, state, and ZIP code"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="food_details" class="form-label">
+                                <i class="fas fa-utensils"></i> Food Details *
+                            </label>
+                            <textarea class="form-control" id="food_details" name="food_details" rows="5" required 
+                                      placeholder="Please describe the food items (type, quantity, preparation date, storage conditions, etc.)"></textarea>
+                            <small class="form-text text-muted">Include details like food type, quantity, freshness, and any special storage requirements</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I confirm that the food is safe for consumption and has been stored properly *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Donation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Information Cards -->
+                <div class="row mt-5">
+                    <div class="col-md-6 mb-4">
+                        <div class="info-card">
+                            <i class="fas fa-clock"></i>
+                            <h5>Quick Response</h5>
+                            <p>We'll contact you within 24 hours to arrange pickup</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h5>Safe & Secure</h5>
+                            <p>Your information is kept confidential and secure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Accept Section -->
+<section class="acceptance-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="acceptance-card accepted">
+                    <h4><i class="fas fa-check-circle"></i> What We Accept</h4>
+                    <ul>
+                        <li>Fresh fruits and vegetables</li>
+                        <li>Packaged dry goods (rice, pasta, beans)</li>
+                        <li>Canned foods (within expiry date)</li>
+                        <li>Cooked meals (prepared within 4 hours)</li>
+                        <li>Baked goods (fresh)</li>
+                        <li>Dairy products (properly refrigerated)</li>
+                        <li>Beverages (sealed/unopened)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="acceptance-card not-accepted">
+                    <h4><i class="fas fa-times-circle"></i> What We Cannot Accept</h4>
+                    <ul>
+                        <li>Expired food items</li>
+                        <li>Food with broken seals</li>
+                        <li>Home-canned goods</li>
+                        <li>Food with signs of spoilage</li>
+                        <li>Alcoholic beverages</li>
+                        <li>Food requiring temperature control without proper storage</li>
+                        <li>Pet food</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Form validation
+    document.getElementById('donateForm').addEventListener('submit', function(e) {
+        const phone = document.getElementById('phone').value;
+        const phoneRegex = /^[0-9+\-\s\(\)]+$/;
+        
+        if (!phoneRegex.test(phone)) {
+            e.preventDefault();
+            alert('Please enter a valid phone number');
+            return false;
+        }
+    });
+</script>
+{% endblock %}
